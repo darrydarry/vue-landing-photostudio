@@ -2,16 +2,17 @@
   <div>
     <HeaderComponent />
     <main class="main-container">
-      <div :style="{ height: '800px' }"></div>
+      <StudioDescription />
     </main>
   </div>
 </template>
 
 <script>
 import HeaderComponent from "./HeaderComponent.vue";
+import StudioDescription from "./StudioDescription.vue";
 export default {
   name: "LayoutPage",
-  components: { HeaderComponent },
+  components: { HeaderComponent, StudioDescription },
 };
 </script>
 

@@ -37,11 +37,18 @@ export default {
 <style lang="scss">
 nav {
   position: fixed;
+  margin: 0 auto;
+  max-width: 1440px;
+  width: 100%;
+  left: 0;
+  right: 0;
 }
 .header-wrapp {
   display: flex;
-  padding: 0px 100px;
   align-items: center;
+  background-color: #ffffff;
+  padding-left: 100px;
+  padding-right: 100px;
 
   .header-links-wrapp {
     padding: 30px 102px;
