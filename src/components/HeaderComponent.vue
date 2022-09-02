@@ -2,7 +2,7 @@
   <nav>
     <div class="header-wrapp">
       <a>
-        <img src="../img/logo.png" alt="logo" />
+        <img :src="logo" alt="logo" />
       </a>
       <div class="header-links-wrapp">
         <a v-for="(item, index) in itemsMenu" :key="index" href="">{{
@@ -18,10 +18,12 @@
 </template>
 
 <script>
+import logo from "../assets/img/logo.png";
 export default {
   name: "HeaderComponent",
   data() {
     return {
+      logo,
       itemsMenu: [
         "Портфолио",
         "Виды работ",
@@ -42,6 +44,7 @@ nav {
   width: 100%;
   left: 0;
   right: 0;
+  z-index: 1000;
 }
 .header-wrapp {
   display: flex;

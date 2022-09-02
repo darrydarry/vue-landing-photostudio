@@ -50,8 +50,10 @@ export default {
 }
 
 .studio-description-title {
-  font-weight: 700;
-  font-size: 66px;
+    font: {
+weight: 700;
+size: 66px;
+    }
   line-height: 78px;
   letter-spacing: 3.2px;
   color: #f5f5f5;
