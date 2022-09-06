@@ -1,29 +1,56 @@
 <template>
-  <nav>
-    <div class="header-wrapp">
-      <a>
-        <img :src="logo" alt="logo" />
-      </a>
-      <div class="header-links-wrapp">
-        <a v-for="(item, index) in itemsMenu" :key="index" href="">{{
-          item
-        }}</a>
+  <div>
+    <nav class="main-header">
+      <div class="header-wrapp">
+        <a href="/">
+          <img :src="logo" alt="logo" class="logo" />
+        </a>
+        <div class="header-links-wrapp">
+          <a
+            v-for="(item, index) in itemsMenu"
+            :key="index"
+            href="/"
+            class="header-link"
+            >{{ item }}</a
+          >
+        </div>
+        <div class="feedback">
+          <button class="header-button">ОБРАТНЫЙ ЗВОНОК</button>
+          <a class="phone-num" href="">+7 (499) 344 60 91</a>
+        </div>
+
+        <div class="icon-phone">
+          <img :src="phone" alt="phone" />
+        </div>
+
+        <div class="icon-hamburger" @click="showMobileMenu">
+          <img :src="hamburger" alt="hamburger" />
+        </div>
       </div>
-      <div class="feedback">
-        <button class="header-button">ОБРАТНЫЙ ЗВОНОК</button>
-        <a class="phone-num" href="">+7 (499) 344 60 91</a>
-      </div>
-    </div>
-  </nav>
+    </nav>
+
+    <OverlayComponent :isShow="isShowOverlay" @click.native="hideOverlay" />
+    <MobileMenu v-show="isShowOverlay" :itemsMenu="itemsMenu" />
+  </div>
 </template>
 
 <script>
 import logo from "../assets/img/logo.png";
+import phone from "../assets/img/phone.svg";
+import hamburger from "../assets/img/hamburger.svg";
+import OverlayComponent from "./OverlayComponent.vue";
+import MobileMenu from "./MobileMenu.vue";
 export default {
   name: "HeaderComponent",
+  components: {
+    OverlayComponent,
+    MobileMenu,
+  },
   data() {
     return {
       logo,
+      phone,
+      hamburger,
       itemsMenu: [
         "Портфолио",
         "Виды работ",
@@ -31,98 +58,201 @@ export default {
         "Услуги и цены",
         "Контакты",
       ],
+      isShowOverlay: false,
     };
+  },
+
+  methods: {
+    showMobileMenu() {
+      console.log(2222);
+
+      if (!this.isShowOverlay) {
+        this.isShowOverlay = true;
+      } else {
+        this.hideOverlay();
+      }
+    },
+
+    hideOverlay() {
+      this.isShowOverlay = false;
+    },
   },
 };
 </script>
 
 <style lang="scss">
-nav {
+.main-header {
   position: fixed;
   margin: 0 auto;
   max-width: 1440px;
   width: 100%;
   left: 0;
   right: 0;
-  z-index: 1000;
-}
-.header-wrapp {
-  display: flex;
-  align-items: center;
-  background-color: #ffffff;
-  padding-left: 100px;
-  padding-right: 100px;
+  z-index: 1006;
 
-  .header-links-wrapp {
-    padding: 30px 102px;
-    width: 581px;
+  .header-wrapp {
     display: flex;
-  }
-  a {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
-    color: #4a4a4a;
-    text-decoration: none;
-    cursor: pointer;
-    text-indent: 30px;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 22px 100px;
+    justify-content: space-between;
 
-    &:hover {
+    .logo {
+      width: 108px;
+      height: 35px;
+      margin-right: 32px;
+    }
+
+    .header-links-wrapp {
+      display: flex;
+    }
+    .header-link {
       font-weight: 500;
       font-size: 14px;
       line-height: 20px;
-      color: #333333;
-    }
+      color: #4a4a4a;
+      text-decoration: none;
+      cursor: pointer;
+      white-space: nowrap;
+      margin-right: 32px;
 
-    &:active {
-      font-weight: 500;
+      &:hover {
+        color: #333333;
+      }
+
+      &:active {
+        color: #e97522;
+      }
+    }
+    .feedback {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .phone-num {
+      font-weight: 600;
       font-size: 14px;
-      color: #e97522;
-    }
-  }
-  .feedback {
-    width: 348px;
-    display: flex;
-    align-items: center;
-  }
-  .phone-num {
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 20px;
-  }
-  img {
-    width: 108px;
-    height: 35px;
-  }
-  button {
-    width: 196px;
-    height: 31px;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 15px;
-    color: #e97522;
-    border: 2px solid #e97522;
-    border-radius: 10px;
-    background-color: #ffffff;
-    cursor: pointer;
-    padding: 8px 24px;
-    transition: width 0.1s;
-
-    &:hover {
-      background: #e97522;
-      color: #ffffff;
+      line-height: 20px;
+      margin-left: 24px;
+      color: #585858;
+      text-decoration: none;
     }
 
-    &:active {
-      width: 173px;
-      height: 28px;
-      font-size: 10px;
-      line-height: 12px;
+    .header-button {
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 15px;
       letter-spacing: 1px;
-      color: #ffffff;
-      background: #e97522;
+      color: #e97522;
+      border: 2px solid #e97522;
+      border-radius: 10px;
+      background-color: #ffffff;
+      cursor: pointer;
+      padding: 8px 24px;
+      transition: width 0.1s;
+
+      &:hover {
+        background: #e97522;
+        color: #ffffff;
+      }
+
+      &:active {
+        width: 173px;
+        height: 28px;
+        font-size: 10px;
+        line-height: 12px;
+        letter-spacing: 1px;
+      }
+    }
+    .icon-hamburger,
+    .icon-phone {
+      display: none;
+    }
+  }
+
+  // tablet styles
+  @media screen and (max-width: 1024px) and (min-width: 768px) {
+    width: 100%;
+    margin: 0 auto;
+
+    .header-wrapp {
+      padding: 12px 80px;
+
+      .icon-hamburger,
+      .icon-phone {
+        display: none;
+      }
+
+      .logo {
+        width: 113px;
+        height: 36px;
+        margin-right: 24px;
+      }
+
+      .header-links-wrapp {
+        flex-wrap: wrap;
+
+        .header-link {
+          font-size: 12px;
+          margin-right: 24px;
+        }
+      }
+
+      .feedback {
+        flex-direction: column-reverse;
+        align-items: flex-end;
+
+        .phone-num {
+          margin-bottom: 3px;
+        }
+
+        .header-button {
+          font-size: 11px;
+          line-height: 13px;
+          width: 162px;
+          padding: 8px 12px;
+        }
+      }
+    }
+  }
+
+  // mobile styles
+  @media screen and (max-width: 768px) {
+    .header-wrapp {
+      padding: 5px 16px;
+
+      .icon-phone,
+      .icon-hamburger {
+        display: block;
+      }
+
+      .logo {
+        width: 63px;
+        height: 20px;
+        margin-right: 24px;
+      }
+
+      .header-links-wrapp {
+        display: none;
+
+        .header-link {
+          font-size: 12px;
+          margin-right: 24px;
+        }
+      }
+
+      .feedback {
+        flex-direction: column-reverse;
+        align-items: flex-end;
+
+        .phone-num {
+          margin-bottom: 3px;
+        }
+
+        .header-button {
+          display: none;
+        }
+      }
     }
   }
 }

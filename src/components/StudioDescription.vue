@@ -37,7 +37,7 @@ export default {
 };
 </script>
 
-<style lang='scss'>
+<style lang="scss">
 .studio-description-container {
   background-color: #444444;
 }
@@ -47,13 +47,14 @@ export default {
   flex-direction: column;
   padding: 149px 0 141px 100px;
   width: 791px;
+  margin-bottom: 120px;
 }
 
 .studio-description-title {
-    font: {
-weight: 700;
-size: 66px;
-    }
+  font: {
+    weight: 700;
+    size: 66px;
+  }
   line-height: 78px;
   letter-spacing: 3.2px;
   color: #f5f5f5;
@@ -66,6 +67,13 @@ size: 66px;
   line-height: 120%;
   color: #f5f5f5;
   width: 625px;
+
+  @media screen and (max-width: 1024px) and (min-width: 768px) {
+    font-size: 24px;
+    line-height: 140%;
+    width: 418px;
+    text-align: unset;
+  }
 }
 
 .studio-description-text {
@@ -106,4 +114,34 @@ size: 66px;
     letter-spacing: 2px;
   }
 }
+
+// tablet styles
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .studio-description-wrapp {
+    padding-left: 80px;
+    padding-top: 70px;
+    width: auto;
+
+    .studio-description-title {
+      width: 573px;
+      font-size: 48px;
+      line-height: 52px;
+      letter-spacing: 2.3px;
+    }
+
+    .studio-description-subtitle {
+      font-size: 24px;
+      line-height: 140%;
+      width: 418px;
+      text-align: normal;
+    }
+  }
+}
+
+  // mobile styles
+ @media screen and (max-width: 768px) {
+  .studio-description-container {
+    display: none;
+  }
+ }
 </style>

@@ -3,10 +3,34 @@
     <HeaderComponent />
     <main class="main-container">
       <StudioDescription />
-      <h2>Наши работы</h2>
-      <SwiperComponent :photos="photoUrls" />
-      <h2>Наши локации</h2>
-      <SwiperComponent :photos="locationUrl" />
+
+      <div>
+        <h2>Наши работы</h2>
+        <SwiperComponent :photos="photoUrls" />
+      </div>
+
+      <div>
+        <h2>Наши локации</h2>
+        <SwiperComponent
+          :photos="locationUrl"
+          class="visible-for-desktop-tablet"
+        />
+
+        <SwiperComponent
+          :photos="locationUrl"
+          class="visible-for-mobile"
+          :slidesPerView="1"
+        />
+      </div>
+
+      <div class="swiper-button-wrap">
+        <button class="swiper-button">выбрать локацию</button>
+      </div>
+
+      <div>
+        <h2>Виды услуг</h2>
+        <ServisesComponent :images="servisesUrl" />
+      </div>
     </main>
   </div>
 </template>
@@ -15,6 +39,7 @@
 import HeaderComponent from "./HeaderComponent.vue";
 import StudioDescription from "./StudioDescription.vue";
 import SwiperComponent from "./SwiperComponent.vue";
+import ServisesComponent from "./ServisesComponent.vue";
 
 import firstPhoto from "../assets/img/left.png";
 import secondPhoto from "../assets/img/center.png";
@@ -24,12 +49,25 @@ import street from "../assets/img/street.png";
 import forest from "../assets/img/forest.png";
 import house from "../assets/img/house.png";
 
+import imgOne from "../assets/img/image1.png";
+import imgTwo from "../assets/img/image2.png";
+import imgThree from "../assets/img/image3.png";
+import imgFour from "../assets/img/image4.png";
+import imgFive from "../assets/img/image5.png";
+import imgSix from "../assets/img/image6.png";
+import imgSeven from "../assets/img/image7.png";
+import imgEight from "../assets/img/image8.png";
+import imgNine from "../assets/img/image9.png";
+import imgTen from "../assets/img/image10.png";
+import imgEleven from "../assets/img/image11.png";
+
 export default {
   name: "LayoutPage",
   components: {
     HeaderComponent,
     StudioDescription,
     SwiperComponent,
+    ServisesComponent,
   },
   data() {
     return {
@@ -42,18 +80,47 @@ export default {
         firstPhoto,
       ],
       locationUrl: [street, forest, house, forest, street],
+      servisesUrl: [
+        { id: 1, src: imgOne, description: "Фотосессия Лав Стори" },
+        { id: 2, src: imgTwo, description: "Фотосессия для парней" },
+        { id: 3, src: imgThree, description: "Групповая фотосессия" },
+        { id: 4, src: imgFour, description: "Фотосессия для беременных" },
+        { id: 5, src: imgFive, description: "Фотосессия для подростков" },
+        { id: 6, src: imgSix, description: "Фотосессия Лукбук" },
+        { id: 7, src: imgSeven, description: "Фотосессия для девушек" },
+        { id: 8, src: imgEight, description: "Фотосессия с животными" },
+        { id: 9, src: imgNine, description: "Парная фотосессия" },
+        { id: 10, src: imgTen, description: "Семейная фотосессия (дети +14)" },
+        { id: 11, src: imgEleven, description: "Фотосессия «Деловой стиль»" },
+      ],
     };
   },
 };
 </script>
 
 <style lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Oswald&family=Quicksand&display=swap");
 .main-container {
   max-width: 1440px;
   width: 100%;
   margin: 0 auto;
-  font-family: "Montserrat";
   padding-top: 80px;
+
+  .visible-for-mobile {
+    display: none;
+
+    @media screen and (max-width: 768px) {
+      display: block;
+    }
+  }
+
+  .visible-for-desktop-tablet {
+    display: none;
+  }
+
+  @media screen and (max-width: 1024px) and (min-width: 768px) {
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+  }
 }
 </style>
