@@ -18,7 +18,6 @@ import "swiper/css/swiper.css";
 
 export default {
   name: "SwiperComponent",
-  title: "Auto slides per view / Carousel mode",
   components: {
     Swiper,
     SwiperSlide,

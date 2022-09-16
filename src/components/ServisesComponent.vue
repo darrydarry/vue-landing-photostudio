@@ -8,7 +8,6 @@
       <img :src="servisesUrl.src" alt="image" />
       <div class="description">{{ servisesUrl.description }}</div>
     </div>
-    <!-- <div class="description">{{servisesUrl}}</div> not woerking -->
   </div>
 </template>
 

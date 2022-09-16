@@ -67,6 +67,9 @@ export default {
   line-height: 120%;
   color: #f5f5f5;
   width: 625px;
+  margin-top: 32px;
+  text-align: start;
+
 
   @media screen and (max-width: 1024px) and (min-width: 768px) {
     font-size: 24px;
@@ -93,6 +96,7 @@ export default {
   line-height: 20px;
   text-align: center;
   letter-spacing: 3px;
+  border: none;
   text-transform: uppercase;
   color: #ffffff;
   width: 366px;

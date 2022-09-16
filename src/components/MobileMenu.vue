@@ -1,19 +1,28 @@
 <template>
   <div class="mobile-header-links-wrap">
-    <a
-      v-for="(item, index) in itemsMenu"
-      :key="index"
-      href="/"
-      class="mobile-header-link"
-    >
-      {{ item }}
-    </a>
+    <div class="header-menu-links">
+      <a
+        v-for="(item, index) in itemsMenu"
+        :key="index"
+        href="/"
+        class="mobile-header-link"
+      >
+        {{ item }}
+      </a>
+    </div>
+
+    <OverlayComponent isShow @click.native="$emit('hideMenu')" />
   </div>
 </template>
 
 <script>
+import OverlayComponent from "./OverlayComponent.vue";
+
 export default {
   name: "MobileMenu",
+  components: {
+    OverlayComponent,
+  },
   props: {
     itemsMenu: {
       type: Array,
@@ -40,6 +49,11 @@ export default {
     display: flex;
     justify-content: flex-end;
     margin-bottom: 16px;
+  }
+  
+  .header-menu-links {
+    position: relative;
+    z-index: 9999999;
   }
 }
 </style>

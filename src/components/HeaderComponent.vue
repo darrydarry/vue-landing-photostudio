@@ -29,8 +29,7 @@
       </div>
     </nav>
 
-    <OverlayComponent :isShow="isShowOverlay" @click.native="hideOverlay" />
-    <MobileMenu v-show="isShowOverlay" :itemsMenu="itemsMenu" />
+    <MobileMenu v-show="isShowMenu" :itemsMenu="itemsMenu" @hideMenu="isShowMenu = false" />
   </div>
 </template>
 
@@ -38,12 +37,10 @@
 import logo from "../assets/img/logo.png";
 import phone from "../assets/img/phone.svg";
 import hamburger from "../assets/img/hamburger.svg";
-import OverlayComponent from "./OverlayComponent.vue";
 import MobileMenu from "./MobileMenu.vue";
 export default {
   name: "HeaderComponent",
   components: {
-    OverlayComponent,
     MobileMenu,
   },
   data() {
@@ -58,24 +55,15 @@ export default {
         "Услуги и цены",
         "Контакты",
       ],
-      isShowOverlay: false,
+      isShowMenu: false,
     };
   },
 
   methods: {
     showMobileMenu() {
-      console.log(2222);
-
-      if (!this.isShowOverlay) {
-        this.isShowOverlay = true;
-      } else {
-        this.hideOverlay();
-      }
+      this.isShowMenu = !this.isShowMenu;
     },
 
-    hideOverlay() {
-      this.isShowOverlay = false;
-    },
   },
 };
 </script>

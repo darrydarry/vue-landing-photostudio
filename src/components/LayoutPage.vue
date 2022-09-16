@@ -31,6 +31,21 @@
         <h2>Виды услуг</h2>
         <ServisesComponent :images="servisesUrl" />
       </div>
+
+      <h2>Этапы работ</h2>
+      <!-- <WorkStages /> -->
+
+      <DescriptionComponent />
+      <h2>Стоимость фотосесии</h2>
+      <PriceComponent />
+
+      <DescriptionComponent2 />
+
+      <h2>Подарочный сертификат на фотосессию</h2>
+      <SertificateGift />
+
+      <h2>Отзывы</h2>
+      <FeedbackComponent />
     </main>
   </div>
 </template>
@@ -40,6 +55,13 @@ import HeaderComponent from "./HeaderComponent.vue";
 import StudioDescription from "./StudioDescription.vue";
 import SwiperComponent from "./SwiperComponent.vue";
 import ServisesComponent from "./ServisesComponent.vue";
+
+// import WorkStages from "./WorkStages.vue"
+import DescriptionComponent from "./DescriptionComponent.vue";
+import PriceComponent from "./PriceComponent.vue";
+import DescriptionComponent2 from "./DescriptionComponent2.vue";
+import SertificateGift from "./SertificateGift.vue";
+import FeedbackComponent from "./FeedbackComponent.vue";
 
 import firstPhoto from "../assets/img/left.png";
 import secondPhoto from "../assets/img/center.png";
@@ -68,6 +90,12 @@ export default {
     StudioDescription,
     SwiperComponent,
     ServisesComponent,
+    // WorkStages,
+    DescriptionComponent,
+    PriceComponent,
+    DescriptionComponent2,
+    SertificateGift,
+    FeedbackComponent,
   },
   data() {
     return {
@@ -115,6 +143,10 @@ export default {
 
   .visible-for-desktop-tablet {
     display: none;
+
+    @media screen and (min-width: 768px) {
+      display: block;
+    }
   }
 
   @media screen and (max-width: 1024px) and (min-width: 768px) {
