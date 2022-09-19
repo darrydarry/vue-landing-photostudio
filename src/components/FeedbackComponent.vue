@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="feedback-main-container">
     <div class="feedback-wrapp">
       <div v-for="(user, index) in users" :key="index" class="feedback-user">
         <img :src="user.src" alt="photo" />
@@ -113,6 +113,10 @@ export default {
 .button-wrapp {
   display: flex;
   justify-content: center;
+}
+
+.feedback-main-container{
+  margin-bottom: 150px;
 }
 
 @media screen and (max-width: 1024px) and (min-width: 768px) {

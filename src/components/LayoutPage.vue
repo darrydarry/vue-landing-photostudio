@@ -46,6 +46,9 @@
 
       <h2>Отзывы</h2>
       <FeedbackComponent />
+
+      <FormComponent />
+
     </main>
   </div>
 </template>
@@ -62,6 +65,7 @@ import PriceComponent from "./PriceComponent.vue";
 import DescriptionComponent2 from "./DescriptionComponent2.vue";
 import SertificateGift from "./SertificateGift.vue";
 import FeedbackComponent from "./FeedbackComponent.vue";
+import FormComponent from "./FormComponent.vue"
 
 import firstPhoto from "../assets/img/left.png";
 import secondPhoto from "../assets/img/center.png";
@@ -96,6 +100,7 @@ export default {
     DescriptionComponent2,
     SertificateGift,
     FeedbackComponent,
+    FormComponent,
   },
   data() {
     return {

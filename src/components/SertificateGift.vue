@@ -172,11 +172,11 @@ export default {
     }
 
     .sertificate-gift-right img {
-      width: 267px;
+          width: 100%;
     }
 
     .sertificate-button {
-      width: 320px;
+      width: auto;
     }
 
     .sertificate-description-wrapp {
