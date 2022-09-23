@@ -165,6 +165,7 @@ export default {
 
     .sertificate-subtitle {
       font-size: 24px;
+      width: auto;
     }
 
     .sertificate-gift-left {

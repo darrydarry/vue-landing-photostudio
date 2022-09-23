@@ -10,7 +10,7 @@
       <input type="text" placeholder="Введите ваш E-mail" class="input" />
 
       <span class="input-title">Телефон</span>
-      <input type="text" placeholder="Введите ваше Телефон" class="input" />
+      <input type="text" placeholder="Введите ваш Телефон" class="input" />
 
       <button class="form-button">Отправить</button>
       <span class="form-agreement"
@@ -28,7 +28,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 .form-wrapp {
   background: #f2f4f4;
   border-radius: 25px;
@@ -94,8 +93,6 @@ export default {
     .form-title {
       font-size: 22px;
     }
-    
-    
   }
 }
 </style>

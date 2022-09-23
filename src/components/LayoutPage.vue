@@ -49,6 +49,8 @@
 
       <FormComponent />
 
+      <FooterComponent />
+
     </main>
   </div>
 </template>
@@ -66,6 +68,7 @@ import DescriptionComponent2 from "./DescriptionComponent2.vue";
 import SertificateGift from "./SertificateGift.vue";
 import FeedbackComponent from "./FeedbackComponent.vue";
 import FormComponent from "./FormComponent.vue"
+import FooterComponent from "./FooterComponent.vue"
 
 import firstPhoto from "../assets/img/left.png";
 import secondPhoto from "../assets/img/center.png";
@@ -101,6 +104,7 @@ export default {
     SertificateGift,
     FeedbackComponent,
     FormComponent,
+    FooterComponent,
   },
   data() {
     return {
